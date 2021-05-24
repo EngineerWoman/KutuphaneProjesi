@@ -1,0 +1,46 @@
+﻿@model IEnumerable<LibraryProject.Models.Model.Duyuru>
+@{
+    ViewBag.Title = "Duyurular";
+    Layout = "~/Views/Shared/_OgrenciPaneli.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+            }
+            
+        });
+    });
+</script>
+<div class="content-wrapper">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Duyurular</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body ">
+            <table id="myTable" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Başlık</th>
+                        <th>Tarih</th>
+                        <th>İçerik</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Baslik</td>
+                            <td>@item.Tarih.ToShortDateString()</td>
+                            <td>@item.Icerik</td>
+                        </tr>
+                    }
+                </tbody>
+               
+            </table>
+        </div>
+    </div>
+</div>
+

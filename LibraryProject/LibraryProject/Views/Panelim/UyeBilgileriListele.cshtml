@@ -1,0 +1,128 @@
+﻿@model LibraryProject.Models.Model.Uye
+@{
+    ViewBag.Title = "UyeBilgileriListele";
+    Layout = "~/Views/Shared/_OgrenciPaneli.cshtml";
+}
+
+<section class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Panelim</a></li>
+                        <li class="breadcrumb-item active">Profil Bilgilerim</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card card-primary card-outline">
+                        <div class="card-body box-profile">
+                            <div class="text-center">
+                                <img class="profile-user-img img-fluid img-circle"
+                                     src="@ViewBag.Fotograf"
+                                     alt="User profile picture">
+                            </div>
+                            <h3 class="profile-username text-center">@ViewBag.AdSoyad</h3>
+                            <p class="text-muted text-center">Üye</p>
+                            <ul class="list-group list-group-unbordered mb-3">
+                                <li class="list-group-item">
+                                    <b>Kullanıcı Adı</b> <a class="float-right">@ViewBag.KullaniciAdi</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Mail</b> <a class="float-right">@ViewBag.Mail</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Telefon</b> <a class="float-right">@ViewBag.Telefon</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Adres</b> <a class="float-right">@ViewBag.Adres</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Okuduğum Kitap Sayısı</b> <a class="float-right">@ViewBag.KitapSayisi</a>
+                                </li>
+
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="card">
+                        <div class="card-header p-2">
+                            <ul class="nav nav-pills">
+                                <li class="nav-item active"><a class="nav-link" href="#settings" data-toggle="tab">profil Bilgilerini Güncelle</a></li>
+                            </ul>
+                        </div><!-- /.card-header -->
+
+                        <div class="card-body">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="settings">
+                                    @using (Html.BeginForm("UyeBilgileriListele", "Panelim", FormMethod.Post))
+
+                                    {
+                                        <form class="form-horizontal">
+                                            <div class="form-group row">
+                                                <label for="inputName" class="col-sm-2 col-form-label">Ad Soyad</label>
+                                                <div class="col-sm-10">
+                                                    @Html.TextBoxFor(x => x.UyeAdSoyad, new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputName" class="col-sm-2 col-form-label">Kullanıcı Adı</label>
+                                                <div class="col-sm-10">
+                                                    @Html.TextBoxFor(x => x.KullaniciAdi, new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputName" class="col-sm-2 col-form-label">Şifre</label>
+                                                <div class="col-sm-10">
+                                                    @Html.TextBoxFor(x => x.Sifre, new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputName" class="col-sm-2 col-form-label">Adres</label>
+                                                <div class="col-sm-10">
+                                                    @Html.TextBoxFor(x => x.Adres, new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputName" class="col-sm-2 col-form-label">Fotoğraf</label>
+                                                <div class="col-sm-10">
+                                                    <input type="file" name="Fotograf" accept=".jpg,.png,.jpeg" />
+                                                   @* @Html.TextBoxFor(x => x.Fotograf, new { @class = "form-control" })*@
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputName" class="col-sm-2 col-form-label">Telefon</label>
+                                                <div class="col-sm-10">
+                                                    @Html.TextBoxFor(x => x.Telefon, new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputName" class="col-sm-2 col-form-label">Mail</label>
+                                                <div class="col-sm-10">
+                                                    @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="offset-sm-2 col-sm-10">
+                                                    <button type="submit" class="btn btn-danger">Güncelle</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

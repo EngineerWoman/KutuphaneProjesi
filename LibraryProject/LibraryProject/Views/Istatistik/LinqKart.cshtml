@@ -1,0 +1,308 @@
+﻿
+@{
+    ViewBag.Title = "ADMİN KULLANICI PANELİ";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section role="main" class="content-body">
+    <div class="col-lg-12 col-xl-12">
+        <h5 class="font-weight-semibold text-white text-uppercase mb-3 mt-3">ADMİN KULLANICI PANELİ</h5>
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <section class="card mb-4">
+                    <div class="card-body bg-primary">
+                        <div class="widget-summary">
+                            <div class="widget-summary-col widget-summary-col-icon">
+                                <div class="summary-icon">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                            </div>
+                            <div class="widget-summary-col">
+                                <div class="summary">
+                                    <h4 class="title">Kitaplar</h4>
+                                    <div class="info">
+                                        <strong class="amount">@ViewBag.Kitap</strong>
+                                    </div>
+                                </div>
+                                <div class="summary-footer">
+                                    <a class="text-uppercase">(view all)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <section class="card mb-4">
+                    <div class="card-body bg-secondary">
+                        <div class="widget-summary">
+                            <div class="widget-summary-col widget-summary-col-icon">
+                                <div class="summary-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                            </div>
+                            <div class="widget-summary-col">
+                                <div class="summary">
+                                    <h4 class="title">Yazarlar</h4>
+                                    <div class="info">
+                                        <strong class="amount">@ViewBag.Yazar</strong>
+                                    </div>
+                                </div>
+                                <div class="summary-footer">
+                                    <a class="text-uppercase">(view all)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <section class="card mb-4">
+                    <div class="card-body bg-tertiary">
+                        <div class="widget-summary">
+                            <div class="widget-summary-col widget-summary-col-icon">
+                                <div class="summary-icon">
+                                    <i class="fas fa-user-friends"></i>
+                                </div>
+                            </div>
+                            <div class="widget-summary-col">
+                                <div class="summary">
+                                    <h4 class="title">Üyeler</h4>
+                                    <div class="info">
+                                        <strong class="amount">@ViewBag.Uye</strong>
+                                    </div>
+                                </div>
+                                <div class="summary-footer">
+                                    <a class="text-uppercase">(view all)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <section class="card mb-4">
+                    <div class="card-body bg-quaternary">
+                        <div class="widget-summary">
+                            <div class="widget-summary-col widget-summary-col-icon">
+                                <div class="summary-icon">
+                                    <i class="fas fa-user-edit"></i>
+                                </div>
+                            </div>
+                            <div class="widget-summary-col">
+                                <div class="summary">
+                                    <h4 class="title">Personeller</h4>
+                                    <div class="info">
+                                        <strong class="amount">@ViewBag.Personel</strong>
+                                    </div>
+                                </div>
+                                <div class="summary-footer">
+                                    <a class="text-uppercase">(view all)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <section class="card mb-4">
+                    <div class="card-body bg-success">
+                        <div class="widget-summary">
+                            <div class="widget-summary-col widget-summary-col-icon">
+                                <div class="summary-icon">
+                                    <i class="fas fa-book-open"></i>
+                                </div>
+                            </div>
+                            <div class="widget-summary-col">
+                                <div class="summary">
+                                    <h4 class="title">Ödünç Kitaplar</h4>
+                                    <div class="info">
+                                        <strong class="amount">@ViewBag.EmanetKitap</strong>
+                                    </div>
+                                </div>
+                                <div class="summary-footer">
+                                    <a class="text-uppercase">(view all)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <section class="card mb-4">
+                    <div class="card-body bg-info">
+                        <div class="widget-summary">
+                            <div class="widget-summary-col widget-summary-col-icon">
+                                <div class="summary-icon">
+                                    <i class="fas fa-hand-holding-usd"></i>
+                                </div>
+                            </div>
+                            <div class="widget-summary-col">
+                                <div class="summary">
+                                    <h4 class="title">Kasa</h4>
+                                    <div class="info">
+                                        <strong class="amount">@ViewBag.Kasa</strong>
+                                    </div>
+                                </div>
+                                <div class="summary-footer">
+                                    <a class="text-uppercase">(view all)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <section class="card mb-4">
+                    <div class="card-body bg-tertiary">
+                        <div class="widget-summary">
+                            <div class="widget-summary-col widget-summary-col-icon">
+                                <div class="summary-icon">
+                                    <i class="fas fa-list-alt"></i>
+                                </div>
+                            </div>
+                            <div class="widget-summary-col">
+                                <div class="summary">
+                                    <h4 class="title">Kategoriler</h4>
+                                    <div class="info">
+                                        <strong class="amount">@ViewBag.Kategori</strong>
+                                    </div>
+                                </div>
+                                <div class="summary-footer">
+                                    <a class="text-uppercase">(view all)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            @*<div class="col-12 col-md-4">
+                <section class="card mb-4">
+                    <div class="card-body bg-danger">
+                        <div class="widget-summary">
+                            <div class="widget-summary-col widget-summary-col-icon">
+                                <div class="summary-icon">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                            </div>
+                            <div class="widget-summary-col">
+                                <div class="summary">
+                                    <h4 class="title">En Aktif Üye</h4>
+                                    <div class="info">
+                                        <strong class="amount">1281</strong>
+                                    </div>
+                                </div>
+                                <div class="summary-footer">
+                                    <a class="text-uppercase">(view all)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>*@
+            @*<div class="col-12 col-md-4">
+                <section class="card mb-4">
+                    <div class="card-body bg-warning">
+                        <div class="widget-summary">
+                            <div class="widget-summary-col widget-summary-col-icon">
+                                <div class="summary-icon">
+                                    <i class="fas fa-book-open"></i>
+                                </div>
+                            </div>
+                            <div class="widget-summary-col">
+                                <div class="summary">
+                                    <h4 class="title">En Çok Okunan Kitap</h4>
+                                    <div class="info">
+                                        <strong class="amount">1281</strong>
+                                    </div>
+                                </div>
+                                <div class="summary-footer">
+                                    <a class="text-uppercase">(view all)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>*@
+            @*<div class="col-12 col-md-4">
+                <section class="card mb-4">
+                    <div class="card-body bg-secondary">
+                        <div class="widget-summary">
+                            <div class="widget-summary-col widget-summary-col-icon">
+                                <div class="summary-icon">
+                                    <i class="fas fa-user-check"></i>
+                                </div>
+                            </div>
+                            <div class="widget-summary-col">
+                                <div class="summary">
+                                    <h4 class="title">En Çok Kitabı Olan Yazar</h4>
+                                    <div class="info">
+                                        <strong class="amount">1281</strong>
+                                    </div>
+                                </div>
+                                <div class="summary-footer">
+                                    <a class="text-uppercase">(view all)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>*@
+            @*<div class="col-12 col-md-4">
+                <section class="card mb-4">
+                    <div class="card-body bg-tertiary">
+                        <div class="widget-summary">
+                            <div class="widget-summary-col widget-summary-col-icon">
+                                <div class="summary-icon">
+                                    <i class="fas fa-archive"></i>
+                                </div>
+                            </div>
+                            <div class="widget-summary-col">
+                                <div class="summary">
+                                    <h4 class="title">En Çok Bulunan YayınEvi</h4>
+                                    <div class="info">
+                                        <strong class="amount">@ViewBag.YayinEvi</strong>
+                                    </div>
+                                </div>
+                                <div class="summary-footer">
+                                    <a class="text-uppercase">(view all)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>*@
+            <div class="col-12 col-md-4">
+                <section class="card mb-4">
+                    <div class="card-body bg-dark">
+                        <div class="widget-summary">
+                            <div class="widget-summary-col widget-summary-col-icon">
+                                <div class="summary-icon">
+                                    <i class="fas fa-sticky-note"></i>
+                                </div>
+                            </div>
+                            <div class="widget-summary-col">
+                                <div class="summary">
+                                    <h4 class="title">Mesajlar</h4>
+                                    <div class="info">
+                                        <strong class="amount">@ViewBag.Mesaj</strong>
+                                    </div>
+                                </div>
+                                <div class="summary-footer">
+                                    <a class="text-uppercase">(view all)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+</section>

@@ -1,0 +1,90 @@
+﻿@model IEnumerable<LibraryProject.Models.Model.Hareket>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+            }
+        });
+    });
+</script>
+
+<section role="main" class="content-body">
+    <h2>ÖDÜNÇ VERİLEN KİTAPLAR</h2>
+    <a class="btn btn-info mb-2" href="/Hareket/OduncKitapVerme/">ÖDÜNÇ KİTAP VER</a>
+    <table class="table table-bordered table-hover table-responsive-sm table-striped table-info" id="myTable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.HareketSira)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Kitap.KitapKodu)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Uye.UyeAdSoyad)
+                </th>
+                <th>
+                    Personel
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.AlisTarih)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IadeTarih)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Not)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Durum)
+                </th>
+
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+     
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HareketSira)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Kitap.KitapKodu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Uye.UyeAdSoyad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Personel.PersonelAdSoyad)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AlisTarih)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IadeTarih)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Not)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Durum)
+                    </td>
+
+                    <td><a href="/Hareket/Edit/@item.HareketId"> <i class="fa fa-edit"></i>İADE ET </a> @*| <a href="/Hareket/Delete/@item.HareketId" onclick="return confirm('Silmek İstediğinizden Emin Misiniz')"> <i class="fa fa-trash"></i>Sil </a>*@</td>
+                </tr>
+            }
+
+        </tbody>
+        
+    </table>
+</section>

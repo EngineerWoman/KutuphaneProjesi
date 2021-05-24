@@ -1,0 +1,27 @@
+﻿@model LibraryProject.Models.Model.Personel
+
+@{
+    ViewBag.Title = "PersonelGuncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<section role="main" class="content-body">
+    <div class="container  bg-white pt-5 pb-5 mt-2">
+        <h2 class="dark">@Model.PersonelAdSoyad</h2>
+        @using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row form-group">
+                <div class="col-md-2 mt-2"><label>Sıra</label></div>
+                <div class="col-md-4 mt-2"> @Html.TextBoxFor(k => k.PersonelSira, new { @class = "form-control" })</div>
+                <div class="col-md-2 mt-2"><label>Ad Soyad</label></div>
+                <div class="col-md-4 mt-2"> @Html.TextBoxFor(k => k.PersonelAdSoyad, new { @class = "form-control" })</div>
+
+            </div>
+            <div class="row form-group">
+                <div class="col-md-1"><a class="btn btn-warning" href="/Personel/Index/">GERİ</a></div>
+                <div class="col-md-1"><button class="btn btn-info" type="submit">GÜNCELLE</button></div>
+            </div>
+        }
+    </div>
+</section>
+

@@ -1,0 +1,107 @@
+﻿@model IEnumerable<LibraryProject.Models.Model.Mesaj>
+@{
+    ViewBag.Title = "GidenMesaj";
+    Layout = "~/Views/Shared/_OgrenciPaneli.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+            }
+        });
+    });
+</script>
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Giden Mesajlar</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-3">
+                <a href="/Panelim/YeniMesaj/" class="btn btn-primary btn-block mb-3">Yeni Mesaj Oluştur</a>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <ul class="nav nav-pills flex-column">
+                            <li class="nav-item active">
+                                <a href="/Panelim/GelenMesaj/" class="nav-link">
+                                    <i class="fas fa-inbox"></i> Gelen Mesajlar
+                                    <span class="badge bg-primary float-right">@ViewBag.GelenMesaj</span>
+
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/Panelim/GidenMesaj/" class="nav-link">
+                                    <i class="far fa-envelope"></i> Giden Mesajlar
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-9">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">Giden Mesajlar</h3>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive mailbox-messages">
+                            <table class="table table-hover table-striped" id="myTable">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Alıcı</th>
+                                        <th>Konu</th>
+                                        <th>İçerik</th>
+                                        <th>Tarih</th>
+                                        <th>İşlemler</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
+                                            <td class="mailbox-name"><a href="read-mail.html">@item.Alici</a></td>
+                                            <td class="mailbox-name"><a href="read-mail.html">@item.Konu</a></td>
+                                            <td class="mailbox-subject">
+                                                @item.Icerik.Substring(0, 10)...
+                                            </td>
+                                            <td class="mailbox-date">@item.Tarih.Date</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <a href="/Panelim/GidenMesajSil/@item.MesajID" onclick="return confirm('Silmek İstediğinizden Emin Misiniz')" type="button" class="btn btn-default btn-sm">
+                                                        <i class="far fa-trash-alt"></i>
+                                                    </a>
+                                                </div> <div class="btn-group">
+                                                    <a href="/Panelim/YeniMesaj/@item.MesajID" type="button" class="btn btn-default btn-sm">
+                                                        <i class="fas fa-reply"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,243 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section role="main" class="content-body">
+    <h2>İSTATİSTİKLER</h2>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row mb-3">
+                <div class="col-xl-3">
+                    <section class="card card-featured-left card-featured-primary mb-3">
+                        <div class="card-body">
+                            <div class="widget-summary">
+                                <div class="widget-summary-col widget-summary-col-icon">
+                                    <div class="summary-icon bg-primary">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                </div>
+                                <div class="widget-summary-col">
+                                    <div class="summary">
+                                        <h4 class="title">Üyeler</h4>
+                                        <div class="info">
+                                            <strong class="amount" style="font-size:20px;">@ViewBag.Uye</strong>
+                                        </div>
+                                    </div>
+                                    @*<div class="summary-footer">
+                                            <a class="text-muted text-uppercase" href="#">(view all)</a>
+                                        </div>*@
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-xl-3">
+                    <section class="card card-featured-left card-featured-secondary">
+                        <div class="card-body">
+                            <div class="widget-summary">
+                                <div class="widget-summary-col widget-summary-col-icon">
+                                    <div class="summary-icon bg-secondary">
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </div>
+                                </div>
+                                <div class="widget-summary-col">
+                                    <div class="summary">
+                                        <h4 class="title">Yazarlar</h4>
+                                        <div class="info">
+                                            <strong class="amount" style="font-size:20px;">@ViewBag.Yazar</strong>
+                                        </div>
+                                    </div>
+                                    @*<div class="summary-footer">
+                                            <a class="text-muted text-uppercase" href="#">(withdraw)</a>
+                                        </div>*@
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                @*</div>
+                    <div class="row">*@
+                <div class="col-xl-3">
+                    <section class="card card-featured-left card-featured-tertiary mb-3">
+                        <div class="card-body">
+                            <div class="widget-summary">
+                                <div class="widget-summary-col widget-summary-col-icon">
+                                    <div class="summary-icon bg-tertiary">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                </div>
+                                <div class="widget-summary-col">
+                                    <div class="summary">
+                                        <h4 class="title">Kitaplar</h4>
+                                        <div class="info">
+                                            <strong class="amount" style="font-size:20px;">@ViewBag.Kitap</strong>
+                                        </div>
+                                    </div>
+                                    @*<div class="summary-footer">
+                                            <a class="text-muted text-uppercase" href="#">(statement)</a>
+                                        </div>*@
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-xl-3">
+                    <section class="card card-featured-left card-featured-quaternary">
+                        <div class="card-body">
+                            <div class="widget-summary">
+                                <div class="widget-summary-col widget-summary-col-icon">
+                                    <div class="summary-icon bg-quaternary">
+                                        <i class="fas fa-book-open"></i>
+                                    </div>
+                                </div>
+                                <div class="widget-summary-col">
+                                    <div class="summary">
+                                        <h4 class="title">Emanet Kitaplar</h4>
+                                        <div class="info">
+                                            <strong class="amount" style="font-size:20px;">@ViewBag.Kasa₺</strong>
+                                        </div>
+                                    </div>
+                                    @*<div class="summary-footer">
+                                            <a class="text-muted text-uppercase" href="#">(report)</a>
+                                        </div>*@
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row pt-4 mt-2">
+        <div class="col-lg-6 col-xl-4">
+            <section class="card card-transparent">
+                @*<header class="card-header">
+                    <div class="card-actions">
+                        <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+                        <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+                    </div>
+
+                </header>*@
+                <div class="card-body">
+                    <section class="card card-group">
+                        @*<header class="card-header bg-primary">
+                        </header>*@
+                        <div id="accordion" class="w-100">
+                            <div class="card card-accordion card-accordion-first">
+                                <div class="card-header border-bottom-0">
+                                    <h4 class="card-title">
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1One">
+                                            <i class="fas fa-check mr-1"></i> YAPILACAKLAR
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse1One" class="accordion-body collapse show">
+                                    <div class="card-body">
+                                        <ul class="widget-todo-list">
+                                            <li>
+                                                <div class="checkbox-custom checkbox-default">
+                                                    <input type="checkbox" checked="" id="todoListItem1" class="todo-check">
+                                                    <label class="todo-label" for="todoListItem1"><span>Curabitur ac sem at nibh egestas urabitur ac sem at nibh egestas.</span></label>
+                                                </div>
+                                                <div class="todo-actions">
+                                                    <a class="todo-remove" href="#">
+                                                        <i class="fas fa-times"></i>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            
+                                            <li>
+                                                <div class="checkbox-custom checkbox-default">
+                                                    <input type="checkbox" id="todoListItem4" class="todo-check">
+                                                    <label class="todo-label" for="todoListItem4"><span>Lorem ipsum dolor sit amet</span></label>
+                                                </div>
+                                                <div class="todo-actions">
+                                                    <a class="todo-remove" href="#">
+                                                        <i class="fas fa-times"></i>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="checkbox-custom checkbox-default">
+                                                    <input type="checkbox" id="todoListItem5" class="todo-check">
+                                                    <label class="todo-label" for="todoListItem5"><span>Curabitur ac sem at nibh egestas.</span></label>
+                                                </div>
+                                                <div class="todo-actions">
+                                                    <a class="todo-remove" href="#">
+                                                        <i class="fas fa-times"></i>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="checkbox-custom checkbox-default">
+                                                    <input type="checkbox" id="todoListItem6" class="todo-check">
+                                                    <label class="todo-label" for="todoListItem6"><span>Lorem ipsum dolor sit amet</span></label>
+                                                </div>
+                                                <div class="todo-actions">
+                                                    <a class="todo-remove" href="#">
+                                                        <i class="fas fa-times"></i>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="checkbox-custom checkbox-default">
+                                                    <input type="checkbox" id="todoListItem7" class="todo-check">
+                                                    <label class="todo-label" for="todoListItem7"><span>Curabitur ac sem at nibh egestas.</span></label>
+                                                </div>
+                                                <div class="todo-actions">
+                                                    <a class="todo-remove" href="#">
+                                                        <i class="fas fa-times"></i>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <hr class="solid mt-3 mb-3">
+                                        <form method="get" class="form-horizontal form-bordered">
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <div class="input-group mb-3">
+                                                        <input type="text" class="form-control">
+                                                        <div class="input-group-append">
+                                                            <button type="button" class="btn btn-primary" tabindex="-1">Add</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </section>
+        </div>
+
+        <div class="col-lg-7 bg-white">
+
+            <section class="card card-transparent mb-3">
+                <header class="card-header">
+                    @*<div class="card-actions">
+                        <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+                        <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+                    </div>*@
+
+                    <h2 class="card-title">TÜRKİYE</h2>
+                </header>
+                <div class="card-body">
+                    <div id="vectorMapWorld" >
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d65240155.056049675!2d38.203264327928665!3d18.488105197271878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b0155c964f2671%3A0x40d9dbd42a625f2a!2zVMO8cmtpeWU!5e0!3m2!1str!2str!4v1611588093846!5m2!1str!2str" width="500" height="390" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </div>
+</section>
+
+
+
+<script src="~/Content/Admin/js/jquery.vmap.js"></script>

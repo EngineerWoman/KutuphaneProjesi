@@ -1,0 +1,25 @@
+﻿@model LibraryProject.Models.Model.Kategori
+@{
+    ViewBag.Title = "KategoriGuncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<section role="main" class="content-body">
+    <div class="container bg-white pt-5 pb-5 mt-2">
+        <h2 class="dark">@Model.KategoriAd</h2>
+        @using (Html.BeginForm("KategoriGuncelle", "Kategori", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row form-group">
+                <div class="col-md-2"><label>Sıra</label></div>
+                <div class="col-md-4"> @Html.TextBoxFor(k => k.KategoriSira, new { @class = "form-control" })</div>
+                <div class="col-md-2"><label>Kategori Ad</label></div>
+                <div class="col-md-4"> @Html.TextBoxFor(k => k.KategoriAd, new { @class = "form-control" })</div>
+
+            </div>
+            <div class="row form-group">
+                <div class="col-md-1"><a class="btn btn-warning" href="/Kategori/Index/">GERİ</a></div>
+                <div class="col-md-1"><button class="btn btn-info" type="submit">GÜNCELLE</button></div>
+            </div>
+        }
+    </div>
+</section>

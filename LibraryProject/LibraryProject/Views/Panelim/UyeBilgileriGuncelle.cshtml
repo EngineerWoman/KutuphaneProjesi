@@ -1,0 +1,39 @@
+﻿@model LibraryProject.Models.Model.Uye
+@{
+    ViewBag.Title = "UyeBilgileriGuncelle";
+    Layout = "~/Views/Shared/_OgrenciPaneli.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="container">
+        @*<h2>@Model.UyeAdSoyad</h2>*@
+        @using (Html.BeginForm("UyeBilgileriGuncelle", "Panelim", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row form-group">
+                @*<div class="col-md-2"><label>Sıra</label></div>
+                    <div class="col-md-4"> @Html.TextBoxFor(k => k.UyeSira, new { @class = "form-control" })</div>*@
+                <div class="col-md-2"><label>Ad Soyad</label></div>
+                <div class="col-md-4"> @Html.TextBoxFor(k => k.UyeAdSoyad, new { @class = "form-control" })</div>
+                <div class="col-md-2"><label>Kullanıcı Adı</label></div>
+                <div class="col-md-4"> @Html.TextBoxFor(k => k.KullaniciAdi, new { @class = "form-control" })</div>
+                <div class="col-md-2"><label>Şifre</label></div>
+                <div class="col-md-4"> @Html.TextBoxFor(k => k.Sifre, new { @class = "form-control" })</div>
+                <div class="col-md-2"><label>Mail</label></div>
+                <div class="col-md-4"> @Html.TextBoxFor(k => k.Mail, new { @class = "form-control" })</div>
+                <div class="col-md-2"><label>Telefon</label></div>
+                <div class="col-md-4"> @Html.TextBoxFor(k => k.Telefon, new { @class = "form-control" })</div>
+                <div class="col-md-2"><label>Adres</label></div>
+                <div class="col-md-4"> @Html.TextBoxFor(k => k.Adres, new { @class = "form-control" })</div>
+                <div class="col-md-2"><label>Fotoğraf</label></div>
+                <div class="col-md-4"><input class="form-control" type="file" accept=".jpg,.jpeg,.png" name="Fotograf" /></div>
+
+            </div>
+            <div class="row form-group">
+                <div class="col-md-1"><a class="btn btn-warning" href="/Panelim/UyeBilgileriListele/">GERİ</a></div>
+                <div class="col-md-1"><button class="btn btn-info" type="submit">GÜNCELLE</button></div>
+            </div>
+        }
+    </div>
+
+</div>

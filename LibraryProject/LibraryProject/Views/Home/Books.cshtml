@@ -1,0 +1,42 @@
+﻿@model IEnumerable<LibraryProject.Models.Model.Kitap>
+@{
+    ViewBag.Title = "Kitaplar";
+    Layout = "~/Views/Shared/_VitrinLayout.cshtml";
+}
+
+<main id="main">
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+
+            <ol>
+                <li><a href="/">Anasayfa</a></li>
+
+            </ol>
+            <h2>Kitaplar</h2>
+
+        </div>
+    </section>
+    <section id="team" class="team">
+        <div class="container">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="member">
+                            <img src="@item.Resim" alt="@item.KitapAd" title="@item.KitapAd" class="img-fluid">
+                            <h4>@item.KitapAd</h4>
+                            <span>@item.Yazar.YazarAdSoyad</span>
+                            <div class="social">
+                                <a href="/Home/BookDetail/@item.KitapId/"><i class="icon-arrow-right el-italic"></i>Kitabı İncele</a>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+</main>
+
+
+

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<LibraryProject.Models.Model.Personel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+            }
+        });
+    });
+</script>
+<section role="main" class="content-body">
+    <h2>PERSONELLER</h2>
+    <a class="btn btn-info mb-2" href="/Personel/PersonelEkle/">YENİ KAYIT</a>
+    <table class="table table-bordered table-hover table-responsive-sm table-striped table-info" id="myTable">
+        <thead>
+            <tr>
+                <th>SIRA</th>
+                <th>AD SOYAD</th>
+                <th>İŞLEMLER</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.PersonelSira</td>
+                    <td>@item.PersonelAdSoyad</td>
+                    <td><a href="/Personel/PersonelGuncelle/@item.PersoneId"> <i class="fa fa-edit"></i>Güncelle </a> | <a href="/Personel/Delete/@item.PersoneId" onclick="return confirm('Silmek İstediğinizden Emin Misiniz')"> <i class="fa fa-trash"></i>Sil </a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>

@@ -1,0 +1,72 @@
+﻿@model LibraryProject.Models.Model.Slider
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section role="main" class="content-body">
+
+
+    @using (Html.BeginForm("Create", "Galeri", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="row form-horizontal mt-2 mb-2">
+            <div class="col-lg-12 bg-white">
+                <h2 class=" text-color-dark">GALERİ EKLEME</h2>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Sira, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10 required">
+                        @Html.EditorFor(model => model.Sira, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Sira, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Baslik, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10 required">
+                        @Html.EditorFor(model => model.Baslik, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Baslik, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Aciklama, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10 required">
+                        @Html.EditorFor(model => model.Aciklama, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Aciklama, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Resim, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10 required">
+
+                        <input type="file" class="form-control" accept=".jpg,.jpeg,.png" name="Resim" />
+                        <p class="alert-warning">400*400 Formatında Görsel Giriniz!!!</p>
+                        @*@Html.EditorFor(model => model.Resim, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Resim, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Durum, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.Durum)
+                            @Html.ValidationMessageFor(model => model.Durum, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row form-group  mb-2">
+                    <div class="col-md-1"><a class="btn btn-warning" href="/Galeri/Index/">GERİ</a></div>
+                    <div class="col-md-1"><button class="btn btn-info" type="submit">EKLE</button></div>
+                </div>
+            </div>
+        </div>
+    }
+
+
+</section>

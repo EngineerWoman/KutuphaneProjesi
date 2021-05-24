@@ -1,0 +1,26 @@
+﻿@model LibraryProject.Models.Model.Personel
+@{
+    ViewBag.Title = "PersonelEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section role="main" class="content-body">
+    <div class="container  bg-white pt-5 pb-5 mt-2">
+        <h2 class="bold mb-2 dark">YENİ PERSONEL EKLEME İŞLEMİ</h2>
+        <form class="form mt-4" method="post">
+            <div class="row form-group">
+                <div class="col-md-2 mt-2"><label>Sıra</label></div>
+                <div class="col-md-4 mt-2"> <input class="form-control" name="PersonelSira" /></div>
+
+                <div class="col-md-2 mt-2"><label>Ad Soyad</label></div>
+                <div class="col-md-4 mt-2"> <input class="form-control" name="PersonelAdSoyad" /></div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-1"><a class="btn btn-warning" href="/Personel/Index/">GERİ</a></div>
+                <div class="col-md-1"><button class="btn btn-info" type="submit">EKLE</button></div>
+            </div>
+        </form>
+    </div>
+
+</section>
+

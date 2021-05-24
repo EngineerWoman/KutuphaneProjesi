@@ -1,0 +1,54 @@
+﻿@model IEnumerable<LibraryProject.Models.Model.Uye>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+            }
+        });
+    });
+</script>
+<section role="main" class="content-body">
+    <h2>UYELER</h2>
+    <a class="btn btn-info mb-2" href="/Uye/Create/">YENİ KAYIT</a>
+    <table class="table table-bordered table-hover table-responsive-sm table-striped table-info" id="myTable">
+        <thead>
+            <tr>
+                <th>ÜYE SIRA</th>
+                <th>FOTOĞRAF</th>
+                <th>AD SOYAD</th>
+                <th>KULLANICI ADI</th>
+                <th>MAİL</th>
+                <th>ÜYENİN ALDIĞI KİTAPLAR</th>
+                @*<th>CEZA</th>*@
+                <th>İŞLEMLER</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.UyeSira</td>
+                    <td><img src="@item.Fotograf" width="80" height="60" /></td>
+                    <td>@item.UyeAdSoyad</td>
+                    <td>@item.KullaniciAdi</td>
+                    <td>@item.Mail</td>
+                    <td><a href="/Uye/UyeKitapGecmis/@item.UyeId"> <i class="fa fa-book"></i>Görüntüle</a></td>
+
+                    @*<td>@item.Ceza</td>*@
+                    <td><a href="/Uye/Edit/@item.UyeId"> <i class="fa fa-edit"></i>Güncelle </a> | <a href="/Uye/Delete/@item.UyeId" onclick="return confirm('Silmek İstediğinizden Emin Misiniz')"> <i class="fa fa-trash"></i>Sil </a></td>
+                </tr>
+            }
+
+        </tbody>
+      
+    </table>
+    @*@Html.PagedListPager((IPagedList)Model, Page => Url.Action("Index", new { Page, @class = "padegListStyle" }), PagedListRenderOptions.Classic)*@
+    @*@Html.PagedListPager((IPagedList)Model, Page => Url.Action("Index", new { Page, @class = "form-control" }), PagedListRenderOptions.Classic)*@
+
+</section>

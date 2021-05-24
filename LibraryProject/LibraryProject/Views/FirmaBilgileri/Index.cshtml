@@ -1,0 +1,39 @@
+﻿@model IEnumerable<LibraryProject.Models.Model.FirmaBilgileri>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section role="main" class="content-body">
+    <h2>FİRMA BİLGİLERİ</h2>
+    @*@using (Html.BeginForm("Index", "Kitap", FormMethod.Get))
+        {
+            <div class="col-md-8 float-right"><b>Aradoğınız Kitabı Bulun</b> @Html.TextBox("kitap")<input type="submit" value="Ara" /> </div>
+
+        }*@
+    @*<a class="btn btn-info mb-2" href="/FirmaBilgileri/Create/">YENİ KAYIT</a>*@
+    <table class="table table-bordered table-hover table-responsive-sm table-striped table-info">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Resim)</th>
+            <th>@Html.DisplayNameFor(model => model.FirmaAdi)</th>
+            <th>İşlemler</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@item.Resim" width="60" height="50" />
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirmaAdi)
+                </td>
+               
+                <td><a href="/FirmaBilgileri/Edit/@item.FirmaId"> <i class="fa fa-edit"></i>Güncelle </a> @*| <a href="/FirmaBilgileri/Delete/@item.FirmaId" onclick="return confirm('Silmek İstediğinizden Emin Misiniz')"> <i class="fa fa-trash"></i>Sil </a>*@</td>
+            </tr>
+        }
+
+    </table>
+</section>

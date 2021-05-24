@@ -1,0 +1,48 @@
+﻿@model LibraryProject.Models.Model.Uye
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section role="main" class="content-body">
+    <div class="container bg-white pt-5 pb-5 mt-2">
+        <h2 class="bold dark mb-2">YENİ ÜYE EKLEME İŞLEMİ</h2>
+
+        @using (Html.BeginForm("Create", "Uye", FormMethod.Post, new {enctype="multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row form-group">
+                <div class="col-md-2 mt-2"><label>Sıra</label></div>
+                <div class="col-md-4 mt-2">  <input class="form-control" name="UyeSira" /></div>
+
+                <div class="col-md-2 mt-2"><label>Ad Soyad</label></div>
+                <div class="col-md-4 mt-2">  <input class="form-control" name="UyeAdSoyad" /></div>
+
+                <div class="col-md-2 mt-2"><label>Kullanıcı Adı</label></div>
+                <div class="col-md-4 mt-2">  <input class="form-control" name="KullaniciAdi" /></div>
+
+                <div class="col-md-2"><label>Şifre</label></div>
+                <div class="col-md-4">  <input class="form-control" name="Sifre" /></div>
+
+                <div class="col-md-2 mt-2"><label>Mail</label></div>
+                <div class="col-md-4 mt-2">  <input class="form-control" name="Mail" /></div>
+
+                <div class="col-md-2 mt-2"><label>Telefon</label></div>
+                <div class="col-md-4 mt-2">  <input class="form-control" name="Telefon" /></div>
+
+                <div class="col-md-2 mt-2"><label>Adres</label></div>
+                <div class="col-md-4 mt-2">  <input class="form-control" name="Adres" /></div>
+
+                <div class="col-md-2 mt-2"><label>Fotoğraf</label></div>
+                <div class="col-md-4 mt-2">  <input class="form-control" type="file" accept=".jpg,.jpeg,.png" name="Fotograf" /></div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-1"><a class="btn btn-warning" href="/Uye/Index/">GERİ</a></div>
+                <div class="col-md-1"><button class="btn btn-info" type="submit">EKLE</button></div>
+            </div>
+        }
+    </div>
+
+</section>
+

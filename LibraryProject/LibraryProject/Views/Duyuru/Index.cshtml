@@ -1,0 +1,49 @@
+﻿@model IEnumerable<LibraryProject.Models.Model.Duyuru>
+@{
+    ViewBag.Title = "Duyurular";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+            }
+        });
+    });
+</script>
+<section role="main" class="content-body">
+    <h2>DUYURULAR</h2>
+    <a class="btn btn-info mb-2" href="/Duyuru/Create/">YENİ KAYIT</a>
+    <table class="table table-bordered table-hover table-responsive-sm table-striped table-info" id="myTable">
+        <thead>
+            <tr>
+                <th>SIRA</th>
+                <th>BAŞLIK</th>
+                <th>TARİH</th>
+                <th>DURUM</th>
+                <th>İŞLEMLER</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Sira</td>
+                    <td>@item.Baslik</td>
+                    <td>@item.Tarih.ToShortDateString()</td>
+                    <td>@Html.DisplayFor(modelItem => item.Durum)</td>
+
+                    <td>
+                        <a href="/Duyuru/Edit/@item.DuyuruId"> <i class="fa fa-edit"></i>Güncelle </a> |
+                        <a href="/Duyuru/Delete/@item.DuyuruId" onclick="return confirm('Silmek İstediğinizden Emin Misiniz')"> <i class="fa fa-trash"></i>Sil </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</section>
+
+

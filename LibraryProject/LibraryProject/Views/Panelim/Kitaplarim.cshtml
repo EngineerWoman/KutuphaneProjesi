@@ -1,0 +1,55 @@
+﻿@model IEnumerable<LibraryProject.Models.Model.Hareket>
+@{
+    ViewBag.Title = "Kitaplarim";
+    Layout = "~/Views/Shared/_OgrenciPaneli.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+            }
+        });
+    });
+</script>
+<div class="content-wrapper">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Aldığım Kitaplar</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table id="myTable" class="table table-bordered table-striped" >
+                <thead>
+                    <tr>
+                        <th>Kitap</th>
+                        <th>Alınan Tarih</th>
+                        <th>İade Tarihi</th>
+                        <th>Not</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Kitap.KitapAd</td>
+                            <td>@item.AlisTarih</td>
+                            <td>@item.IadeTarih</td>
+                            <td>@item.Not</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Kitap</th>
+                        <th>Alınan Tarih</th>
+                        <th>İade Tarihi</th>
+                        <th>Not</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+

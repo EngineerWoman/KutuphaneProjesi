@@ -1,0 +1,45 @@
+﻿@model LibraryProject.Models.Model.Uye
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section role="main" class="content-body">
+    <div class="container  bg-white pt-5 pb-5 mt-2">
+        <h2 class="dark">@Model.UyeAdSoyad</h2>
+        @using (Html.BeginForm("Edit", "Uye", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row form-group">
+                <div class="col-md-2 mt-2"><label>Sıra</label></div>
+                <div class="col-md-4 mt-2"> @Html.TextBoxFor(k => k.UyeSira, new { @class = "form-control" })</div>
+                <div class="col-md-2 mt-2"><label>Ad Soyad</label></div>
+                <div class="col-md-4 mt-2"> @Html.TextBoxFor(k => k.UyeAdSoyad, new { @class = "form-control" })</div>
+                <div class="col-md-2 mt-2"><label>Kullanıcı Adı</label></div>
+                <div class="col-md-4 mt-2"> @Html.TextBoxFor(k => k.KullaniciAdi, new { @class = "form-control" })</div>
+                <div class="col-md-2 mt-2"><label>Şifre</label></div>
+                <div class="col-md-4 mt-2"> @Html.TextBoxFor(k => k.Sifre, new { @class = "form-control" })</div>
+                <div class="col-md-2 mt-2"><label>Mail</label></div>
+                <div class="col-md-4 mt-2"> @Html.TextBoxFor(k => k.Mail, new { @class = "form-control" })</div>
+                <div class="col-md-2 mt-2"><label>Telefon</label></div>
+                <div class="col-md-4 mt-2"> @Html.TextBoxFor(k => k.Telefon, new { @class = "form-control" })</div>
+                <div class="col-md-2 mt-2"><label>Adres</label></div>
+                <div class="col-md-4 mt-2"> @Html.TextBoxFor(k => k.Adres, new { @class = "form-control" })</div>
+                <div class="col-md-2 mt-2"><label>Fotoğraf</label></div>
+                <div class="col-md-4 mt-2"><input class="form-control" type="file" accept=".jpg,.jpeg,.png" name="Fotograf" /></div>
+                <div class="col-md-2 mt-2"><label>Durum</label></div>
+                <div class="col-md-4 mt-2">
+                    <div class="checkbox-info">
+                        @Html.EditorFor(x=>x.Durum)
+                    </div>
+                </div>
+
+            </div>
+            <div class="row form-group">
+                <div class="col-md-1"><a class="btn btn-warning" href="/Uye/Index/">GERİ</a></div>
+                <div class="col-md-1"><button class="btn btn-info" type="submit">GÜNCELLE</button></div>
+            </div>
+        }
+    </div>
+</section>

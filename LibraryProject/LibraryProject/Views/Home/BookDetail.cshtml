@@ -1,0 +1,40 @@
+﻿@model LibraryProject.Models.Model.Kitap
+@{
+    ViewBag.Title = "BookDetail";
+    Layout = "~/Views/Shared/_VitrinLayout.cshtml";
+}
+
+<main id="main">
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+            <ol>
+                <li><a href="/">Anasayfa</a></li>
+                <li>@Model.Kategori.KategoriAd</li>
+            </ol>
+            <h2>@Model.KitapAd</h2>
+        </div>
+    </section>
+    <section id="about" class="about">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <img src="@Model.Resim" class="img-fluid" alt="@Model.KitapAd">
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                    <h3>@Model.KitapAd</h3>
+                    <ul>
+                        <li><i class="icofont-check-circled"></i>Yazar: @Model.Yazar.YazarAdSoyad</li>
+                        <li><i class="icofont-check-circled"></i> Kategori: @Model.Kategori.KategoriAd</li>
+                        <li><i class="icofont-check-circled"></i> Basım Yılı: @Model.BasimYil </li>
+                        <li><i class="icofont-check-circled"></i> Yayın Evi: @Model.YayinEvi </li>
+                        <li><i class="icofont-check-circled"></i> Sayfa: @Model.Sayfa </li>
+                    </ul>
+                    <p class="dark">
+                        @Model.Aciklama
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

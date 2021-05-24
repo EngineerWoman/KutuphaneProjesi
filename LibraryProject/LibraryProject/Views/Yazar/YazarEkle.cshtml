@@ -1,0 +1,37 @@
+﻿@model LibraryProject.Models.Model.Yazar
+
+@{
+    ViewBag.Title = "YazarEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section role="main" class="content-body">
+    <div class="container bg-white pt-5 pb-5 mt-2">
+        <h2 class="bold dark mb-2">YENİ YAZAR EKLEME İŞLEMİ</h2>
+        @using (Html.BeginForm("YazarEkle", "Yazar", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="row form-group">
+                <div class="col-md-2 mt-2"><label>Sıra</label></div>
+                <div class="col-md-4 mt-2"> <input class="form-control" name="YazarSira" /></div>
+
+                <div class="col-md-2 mt-2"><label>Ad Soyad</label></div>
+                <div class="col-md-4 mt-2"> <input class="form-control" name="YazarAdSoyad" /></div>
+
+                <div class="col-md-2 mt-2"><label>Yazar Hakkında</label></div>
+                <div class="col-md-10 mt-2"> <textarea class="form-control" name="Aciklama"> </textarea></div>
+                <div class="col-md-2 mt-2"><label>Fotoğraf</label></div>
+                <div class="col-md-5 mt-2">
+                    <input type="file" class="form-control" accept=".jpg,.jpeg,.png" name="Resim" />
+                    <p class="alert-warning">400*400 Formatında Görsel Giriniz!!!</p>
+                  
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-1"><a class="btn btn-warning" href="/Yazar/Index/">GERİ</a></div>
+                <div class="col-md-1"><button class="btn btn-info" type="submit">EKLE</button></div>
+            </div>
+        }
+    </div>
+
+</section>
+

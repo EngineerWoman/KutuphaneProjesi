@@ -1,0 +1,24 @@
+﻿@model IEnumerable<LibraryProject.Models.Model.Kategori>
+@{
+    ViewBag.Title = "KategoriEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<section role="main" class="content-body">
+    <div class="container bg-white pt-5 pb-5 mt-2">
+        <h2 class="bold mb-2 dark">YENİ KATEGORİ EKLEME İŞLEMİ</h2>
+        <form class="form mt-4" method="post">
+            <div class="row form-group">
+                <div class="col-md-2"><label>Sıra</label></div>
+                <div class="col-md-4"> <input class="form-control" name="KategoriSira" /></div>
+
+                <div class="col-md-2"><label>Kategori Ad</label></div>
+                <div class="col-md-4"> <input class="form-control" name="KategoriAd" /></div>
+            </div>
+            <div class="row form-group mb-5">
+                <div class="col-md-1"><a class="btn btn-warning" href="/Kategori/Index/">GERİ</a></div>
+                <div class="col-md-1"><button class="btn btn-info" type="submit">EKLE</button></div>
+            </div>
+        </form>
+    </div>
+
+</section>

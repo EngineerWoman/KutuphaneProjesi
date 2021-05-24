@@ -1,0 +1,44 @@
+﻿@model IEnumerable<LibraryProject.Models.Model.Kitap>
+@{
+    ViewBag.Title = "Anasayfa";
+}
+
+<section id="hero">
+    <div class="hero-container">
+
+        @{ Html.RenderAction("SliderPartial", "Home");}
+
+    </div>
+</section>
+
+
+<main id="main">
+    <section id="team" class="team">
+        <div class="container">
+            <div class="row">
+                @foreach (var item in ViewBag.Kitap)
+                {
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="member">
+                            <img src="@item.Resim" alt="@item.KitapAd" title="@item.KitapAd" class="img-fluid">
+                            <h4>@item.KitapAd</h4>
+                            <span>@item.Yazar.YazarAdSoyad</span>
+                            <div class="social">
+                                <a href="/Home/BookDetail/@item.KitapId/"><i class="icon-arrow-right el-italic"></i>Kitabı İncele</a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+</main>
+
+
+<div class="scroll-to-top d-lg-none position-fixed ">
+    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+    </a>
+</div>
+

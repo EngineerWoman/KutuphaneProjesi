@@ -1,0 +1,100 @@
+﻿@model IEnumerable<LibraryProject.Models.Model.Kitap>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+            }
+        });
+    });
+</script>
+
+<section role="main" class="content-body">
+    <h2>KİTAPLAR</h2>
+    @*@using (Html.BeginForm("Index", "Kitap", FormMethod.Get))
+        {
+            <div class="col-md-8 float-right"><b>Aradoğınız Kitabı Bulun</b> @Html.TextBox("kitap")<input type="submit" value="Ara" /> </div>
+
+        }*@
+    <a class="btn btn-info mb-2" href="/Kitaps/Create/">YENİ KAYIT</a>
+    <table class="table table-bordered table-hover table-responsive-sm table-striped table-info" id="myTable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.KitapSira)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Resim)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.KitapKodu)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.KitapAd)
+                </th>
+                <th>
+                    Kategori
+                </th>
+                <th>
+                    Yazar
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BasimYil)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.YayinEvi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sayfa)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Durum)
+                </th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.KitapSira)
+                    </td>
+                    <td><img src="@item.Resim" width="60" height="50" /></td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.KitapKodu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.KitapAd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Kategori.KategoriAd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Yazar.YazarAdSoyad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BasimYil)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.YayinEvi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sayfa)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Durum)
+                    </td>
+                    <td><a href="/Kitaps/Edit/@item.KitapId"> <i class="fa fa-edit"></i>Güncelle </a> | <a href="/Kitaps/Delete/@item.KitapId" onclick="return confirm('Silmek İstediğinizden Emin Misiniz')"> <i class="fa fa-trash"></i>Sil </a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>

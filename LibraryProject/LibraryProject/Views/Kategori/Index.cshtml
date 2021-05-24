@@ -1,0 +1,38 @@
+﻿@model IEnumerable<LibraryProject.Models.Model.Kategori>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+            }
+        });
+    });
+</script>
+<section role="main" class="content-body">
+    <h2>KATEGORİLER</h2>
+    <a class="btn btn-info mb-2" href="/Kategori/KategoriEkle/">YENİ KAYIT</a>
+    <table class="table table-bordered table-hover table-responsive-sm table-striped table-info" id="myTable">
+        <thead>
+            <tr>
+                <th>SIRA</th>
+                <th>KATEGORİ ADI</th>
+                <th>İŞLEMLER</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.KategoriSira</td>
+                    <td>@item.KategoriAd</td>
+                    <td><a href="/Kategori/KategoriGuncelle/@item.KategoriId"> <i class="fa fa-edit"></i>Güncelle </a> | <a href="/Kategori/Delete/@item.KategoriId" onclick="return confirm('Silmek İstediğinizden Emin Misiniz')"> <i class="fa fa-trash"></i>Sil </a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>

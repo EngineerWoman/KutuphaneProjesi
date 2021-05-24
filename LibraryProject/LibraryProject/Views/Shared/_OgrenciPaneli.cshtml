@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Panelim</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="~/Content/Admin/vendor/font-awesome/css/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/Content/Ogrenci/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="~/Content/Ogrenci/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/Ogrenci/plugins/jqvmap/jqvmap.min.css">
+    <link rel="stylesheet" href="~/Content/Ogrenci/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="~/Content/Ogrenci/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="~/Content/Ogrenci/plugins/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="~/Content/Ogrenci/plugins/summernote/summernote-bs4.min.css">
+    <link href="~/Content/ckeditor/contents.css" rel="stylesheet" />
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/jquery-3.5.1.js"></script>
+    <script src="~/Scripts/DataTables/jquery.dataTables.js"></script>
+    <link href="~/Content/DataTables/css/jquery.dataTables.css" rel="stylesheet" />
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="/Home/Index/" class="nav-link">Siteye Git</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </a>
+                </li>
+                <li class="nav-item menu-open">
+                    <a class="nav-link" href="/Panelim/LogOut/">
+                        <i class="fas fa-sign-out-alt" title="Çıkış Yap">Sistemden Çık</i>
+                    </a>
+
+                </li>
+            </ul>
+        </nav>
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <a href="index3.html" class="brand-link">
+                <img src="~/Content/Ogrenci/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <span class="brand-text font-weight-light">Hesabım</span>
+            </a>
+            <div class="sidebar">
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <i class="fa fa-user text-white"></i>
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">@Session["KullaniciAdi"] <br />  @Session["Mail"]</a>
+                    </div>
+                </div>
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item">
+                            <a href="/Panelim/UyeBilgileriListele/" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>
+                                    Profilim
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-comments"></i>
+                                <p>
+                                    Mesajlar
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/Panelim/YeniMesaj/" class="nav-link active">
+                                        <i class="fas fa-plus"></i>
+                                        <p>Yeni Mesaj Oluştur</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Panelim/GelenMesaj/" class="nav-link active">
+                                        <i class="fa fa-comments nav-icon"></i>
+                                        <p>Gelen Mesajlarım</p>
+                                        <span class="badge badge-danger right">@ViewBag.GelenMesaj</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Panelim/GidenMesaj/" class="nav-link active">
+                                        <i class="fa fa-reply-all"></i>
+                                        <p>Giden Mesajlarım</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Panelim/Duyurular/" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Duyurular
+                                    <i class="fas fa-angle-left right"></i>
+                                    <span class="badge badge-info right">@ViewBag.Duyuru</span>
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Panelim/Kitaplarim/" class="nav-link">
+                                <i class="nav-icon fas fa-file"></i>
+                                <p>
+                                    Kitaplarım
+                                    @*<i class="right fas fa-angle-left"></i>*@
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Home/Index/" class="nav-link">
+                                <i class="nav-icon fas fa-tree"></i>
+                                <p>
+                                    Siteye Git
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+
+                        </li>
+
+
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        @RenderBody()
+
+        <footer class="main-footer">
+            <strong>Copyright &copy;  @DateTime.Now.Year <a href="#">Tasarlayan & Geliştirren</a></strong>
+            Tüm Hakları Saklıdır
+        </footer>
+        <aside class="control-sidebar control-sidebar-dark"></aside>
+    </div>
+   
+    <script src="~/Content/Ogrenci/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script>$.widget.bridge('uibutton', $.ui.button)</script>
+    <script src="~/Content/Ogrenci/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/Ogrenci/plugins/chart.js/Chart.min.js"></script>
+    <script src="~/Content/Ogrenci/plugins/sparklines/sparkline.js"></script>
+    <script src="~/Content/Ogrenci/plugins/jqvmap/jquery.vmap.min.js"></script>
+    <script src="~/Content/Ogrenci/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <script src="~/Content/Ogrenci/plugins/jquery-knob/jquery.knob.min.js"></script>
+    <script src="~/Content/Ogrenci/plugins/moment/moment.min.js"></script>
+    <script src="~/Content/Ogrenci/plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="~/Content/Ogrenci/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="~/Content/Ogrenci/plugins/summernote/summernote-bs4.min.js"></script>
+    <script src="~/Content/Ogrenci/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="~/Content/Ogrenci/dist/js/adminlte.js"></script>
+    <script src="~/Content/Ogrenci/dist/js/demo.js"></script>
+    <script src="~/Content/Ogrenci/dist/js/pages/dashboard.js"></script>
+</body>
+</html>

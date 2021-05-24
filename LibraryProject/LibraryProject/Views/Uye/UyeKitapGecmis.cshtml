@@ -1,0 +1,43 @@
+﻿@model IEnumerable<LibraryProject.Models.Model.Hareket>
+@{
+    ViewBag.Title = "UyeKitapGecmis";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+            }
+        });
+    });
+</script>
+<section role="main" class="content-body">
+    <h2>@ViewBag.Uye</h2>
+    <table class="table table-bordered table-hover table-responsive-sm table-striped table-info" id="myTable">
+        <thead>
+            <tr>
+                @*<th>Sıra</th>*@
+                <th>Kitap</th>
+                <th>Kitabı Veren Personel</th>
+                <th>Alış Tarihi</th>
+                <th>İade Tarihi</th>
+                <th>Not</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @*<td>@item.KitapSira</td>*@
+                    <td>@item.Kitap.KitapAd</td>
+                    <td>@item.Personel.PersonelAdSoyad</td>
+                    <td>@item.AlisTarih</td>
+                    <td>@item.IadeTarih</td>
+                    <td>@item.Not</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
+

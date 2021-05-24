@@ -1,0 +1,65 @@
+﻿@model IEnumerable<LibraryProject.Models.Model.Ceza>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+            }
+        });
+    });
+</script>
+<section role="main" class="content-body">
+    <h2>CEZALAR</h2>
+    <a class="btn btn-info mb-2" href="/Ceza/Create/">CEZA İŞLEMİNİ EKLE</a>
+    <table class="table table-bordered table-hover table-responsive-sm table-striped table-info" id="myTable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Hareket.Not)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Uye.UyeAdSoyad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BaslangicTarih)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BitisTarih)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Para)
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Hareket.Not)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Uye.UyeAdSoyad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BaslangicTarih)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BitisTarih)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Para)
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+
+    </table>
+</section>

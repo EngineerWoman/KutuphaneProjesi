@@ -1,0 +1,39 @@
+﻿@model IEnumerable<LibraryProject.Models.Model.Yazar>
+@{
+    ViewBag.Title = "Yazarlar";
+    Layout = "~/Views/Shared/_VitrinLayout.cshtml";
+}
+
+<main id="main">
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+            <ol>
+                <li><a href="/">Anasayfa</a></li>
+            </ol>
+            <h2>Yazarlar</h2>
+        </div>
+    </section>
+    <section id="team" class="team">
+        <div class="container">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="member">
+                            <img src="@item.Resim" alt="@item.YazarAdSoyad" title="@item.YazarAdSoyad" class="img-fluid">
+                            <h4>@item.YazarAdSoyad</h4>
+                            <div class="social">
+                                <br />
+                                <a href="/Home/YazarDetay/@item.YazarId/"><i class="el-italic"></i>KİMDİR BAKINIZ>>></a>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+</main>
+
+
+

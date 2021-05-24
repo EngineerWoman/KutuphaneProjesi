@@ -1,0 +1,35 @@
+﻿@model LibraryProject.Models.Model.Yazar
+@{
+    ViewBag.Title = "YazarGuncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section role="main" class="content-body">
+    <div class="container bg-white pt-5 pb-5 mt-2">
+        <h2 class="dark">@Model.YazarAdSoyad</h2>
+        @using (Html.BeginForm("YazarGuncelle", "Yazar", FormMethod.Post, new { enctype="multipart/form-data"}))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row form-group">
+                <div class="col-md-2"><label>Sıra</label></div>
+                <div class="col-md-4"> @Html.TextBoxFor(k => k.YazarSira, new { @class = "form-control" })</div>
+                <div class="col-md-2"><label>Ad Soyad</label></div>
+                <div class="col-md-4"> @Html.TextBoxFor(k => k.YazarAdSoyad, new { @class = "form-control" })</div>
+                <div class="col-md-2 mt-2"><label>Yazar Hakkında</label></div>
+                <div class="col-md-10 mt-2"> <textarea class="form-control" name="Aciklama">@Model.Aciklama</textarea></div>
+                <div class="col-md-2 mt-2"><label>Fotoğraf</label></div>
+                <div class="col-md-5 mt-2">
+                    <input type="file" class="form-control" accept=".jpg,.jpeg,.png" name="Resim" />
+                    <p class="alert-warning">400*400 Formatında Görsel Giriniz!!!</p>
+                    @*@Html.EditorFor(model => model.Resim, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Resim, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-1"><a class="btn btn-warning" href="/Yazar/Index/">GERİ</a></div>
+                <div class="col-md-1"><button class="btn btn-info" type="submit">GÜNCELLE</button></div>
+            </div>
+        }
+    </div>
+</section>
+

@@ -1,0 +1,40 @@
+﻿@model List<LibraryProject.Models.Model.Kitap>
+@{
+    ViewBag.Title = "Yazarın Kitapları";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+            }
+        });
+    });
+</script>
+<section role="main" class="content-body">
+    <h2>@ViewBag.Yazar KİTAPLARI</h2>
+    <table class="table table-bordered table-hover table-responsive-sm table-striped table-info" id="myTable">
+        <thead>
+            <tr>
+                @*<th>Sıra</th>*@
+                <th>Kitap</th>
+                <th>Kategori</th>
+                <th>YayınEvi</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @*<td>@item.KitapSira</td>*@
+                    <td>@item.KitapAd</td>
+                    <td>@item.Kategori.KategoriAd</td>
+                    <td>@item.YayinEvi</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
+

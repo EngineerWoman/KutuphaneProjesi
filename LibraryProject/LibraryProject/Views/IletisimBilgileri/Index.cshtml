@@ -1,0 +1,31 @@
+﻿@model IEnumerable<LibraryProject.Models.Model.IletisimBilgileri>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<section role="main" class="content-body">
+    <h2>İLETİŞİM BİLGİLERİ</h2>
+    @*<a class="btn btn-info mb-2" href="/Iletisim/Create/">YENİ KAYIT</a>*@
+    <table class="table table-bordered table-hover table-responsive-sm table-striped table-info">
+        <tr>
+            <th>TELEFON</th>
+            <th>MAİL</th>
+            <th>ADRES</th>
+            <th>İŞLEMLER</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Telefon</td>
+                <td>@item.Mail</td>
+                <td>@item.Adres</td>
+
+                <td>
+                    <a href="/IletisimBilgileri/Edit/@item.IletisimBilgiId"> <i class="fa fa-edit"></i>Güncelle </a> @*|
+                    <a href="/IletisimBilgileri/Delete/@item.IletisimBilgiId" onclick="return confirm('Silmek İstediğinizden Emin Misiniz')"> <i class="fa fa-trash"></i>Sil </a>*@
+                </td>
+            </tr>
+        }
+    </table>
+</section>

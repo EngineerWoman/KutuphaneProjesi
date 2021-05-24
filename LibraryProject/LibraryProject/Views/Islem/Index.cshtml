@@ -1,0 +1,88 @@
+﻿@model IEnumerable<LibraryProject.Models.Model.Hareket>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+            }
+        });
+    });
+</script>
+<section role="main" class="content-body">
+    <h2>TESLİM EDİLEN KİTAPLAR</h2>
+    <table class="table table-bordered table-hover table-responsive-sm table-striped table-info" id="myTable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.HareketSira)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Kitap.KitapKodu)
+                </th>
+                <th>
+                    Personel Ad Soyad
+                </th>
+                <th>
+                    Üye Ad Soyad
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AlisTarih)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IadeTarih)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Not)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Durum)
+                </th>
+                @*<th></th>*@
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HareketSira)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Kitap.KitapKodu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Personel.PersonelAdSoyad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Uye.UyeAdSoyad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AlisTarih)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IadeTarih)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Not)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Durum)
+                    </td>
+                    @*<td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.HareketId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.HareketId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.HareketId })
+                        </td>*@
+                </tr>
+            }
+        </tbody>
+
+
+    </table>
+</section>
